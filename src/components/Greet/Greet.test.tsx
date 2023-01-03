@@ -15,18 +15,21 @@ test("Greet renders correctly", () => {
  * it should render hello followed by the name
  */
 
-test("Greet renders correctly TDD", () => {
-  render(<GreekTDD />);
+// Test methos can be grouped with a describe
+describe("GreekTDD test", () => {
+  test("Greet renders correctly TDD", () => {
+    render(<GreekTDD />);
 
-  const greetText = screen.getByText("Hello");
+    const greetText = screen.getByText("Hello");
 
-  expect(greetText).toBeInTheDocument();
-});
+    expect(greetText).toBeInTheDocument();
+  });
 
-test("Greet renders correctly with a name TDD", () => {
-  render(<GreekTDD name={"Federico"} />);
+  test("Greet renders correctly with a name TDD", () => {
+    render(<GreekTDD name={"Federico"} />);
 
-  const greetText = screen.getByText("Hello Federico");
+    const greetText = screen.getByText("Hello Federico");
 
-  expect(greetText).toBeInTheDocument();
+    expect(greetText).toBeInTheDocument();
+  });
 });
