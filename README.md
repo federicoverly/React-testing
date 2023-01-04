@@ -1,47 +1,41 @@
-# Getting Started with Create React App
+# REACT TESTING PROJECT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository goes makes an exhaustive exemplification of different tests using react test library and MSW.
 
-## Available Scripts
+## Simple tests
 
-In the project directory, you can run:
+### Different ways of accesing the virtual dom
 
-### `npm start`
+You can find these in Greet.test, but mainly in Application.test, where I play with different ways of accessing the nodes:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 1.  Get by role (filter by options)
+- 2.  Get by label text
+- 3.  Get by placeholder text
+- 4.  Get by text
+- 5.  Get by display value
+- 6.  Get by alt text
+- 7.  Get by title
+- 8.  Get by test id
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Skills.test uses getAll and QueryBy, to get elements even if they are not visible to the user.
 
-### `npm test`
+### Test a custom hook
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You can check how to test a custom hook in the useCounter.test. It uses the renderHook and then mocks the implementation by using "act"
 
-### `npm run build`
+### Test a user interaction
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the Counter.test file you can check different ways of user interactions. For example, using the userEvent click to dispatch an action, or the tab to see
+which elements are being focused.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Test functions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A mock implementation of functions using jest.fn() can be found in the CounterTwo test. It allows you to check whether a function has been called.
 
-### `npm run eject`
+### Test providers
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+MuiMode shows how to test providers. You can pass it to the render function, but also create a customRender to include all the providers of your application.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Mock and test https
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# React-testing
+To mock http responses, both successful and failure, I am using Mock Service Worker (MSW)[https://mswjs.io/]. An implementation of this can be found in Users.test

@@ -15,7 +15,7 @@ test("Greet renders correctly", () => {
  * it should render hello followed by the name
  */
 
-// Test methos can be grouped with a describe
+// Test methods can be grouped with a describe
 describe("GreekTDD test", () => {
   test("Greet renders correctly TDD", () => {
     render(<GreekTDD />);
