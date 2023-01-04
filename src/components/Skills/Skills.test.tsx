@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, logRoles } from "@testing-library/react";
 import { Skills } from "./Skills";
 
 // Get all to find multiple elements. Returns an array of all matching
@@ -40,11 +40,17 @@ describe("Skills", () => {
 
   // Find by returns a promise when an element is found when matches the query. It is rejected if nothing is found after a timeout (default 1000)
   test("Start learning button is eventually displayed", async () => {
-    render(<Skills skills={skills} />);
+    const view = render(<Skills skills={skills} />);
 
+    // Shows the roles in the dom
+    logRoles(view.container);
+    // Screen.debug to visualize the dom
+    // screen.debug();
     const startLearningButton = await screen.findByRole("button", {
       name: "Start learning",
     });
+    // screen.debug();
+    logRoles(view.container);
 
     expect(startLearningButton).toBeInTheDocument();
   });
