@@ -18,3 +18,5 @@ export const Counter = () => {
     </div>
   );
 };
+
+Counter.displayName = "Counter";

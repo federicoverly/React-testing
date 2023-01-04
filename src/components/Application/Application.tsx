@@ -44,3 +44,5 @@ export const Application = () => {
     </>
   );
 };
+
+Application.displayName = "Application";
